@@ -1,10 +1,20 @@
-def f(u, p):
-    if u == "admin" and p == "123":
-        print("Login berhasil")
-    else:
-        print("Login gagal")
+USERS = {
+    "admin": "123",
+}
 
-user - input("Username: ")
-password - input("Password: ")
+def validate_login(username, password):
+    return username in USERS and USERS[username] == password
 
-f(user, pw)
+def show_success():
+    print("Login berhasil")
+
+def show_error():
+    print("Login gagal")
+
+username_input = input("username: ")
+password_input = input("password: ")
+
+if validate_login(username_input, password_input):
+    show_success()
+else:
+    show_error()
